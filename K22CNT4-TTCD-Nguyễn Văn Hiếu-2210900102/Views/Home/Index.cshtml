@@ -1,0 +1,97 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<main>
+    <!-- Hero section with a background image and call-to-action buttons -->
+    <div class="position-relative overflow-hidden p-3 p-md-5 text-center bg-image" style="background-image: url('/image/store-background.jpg'); background-size: cover; background-position: center; height: 500px;">
+        <div class="col-md-6 p-lg-5 mx-auto my-5 text-light">
+            <h1 class="display-3 fw-bold">Trang sức tôn lên vẻ đẹp quý phái</h1>
+            <h3 class="fw-normal text-light mb-3">Sự lựa chọn hoàn hảo cho phái đẹp</h3>
+
+            <div class="d-flex gap-3 justify-content-center lead fw-normal">
+                <a class="btn btn-outline-light btn-lg" href="@Url.Action("About", "Home")">
+                    Learn More
+                </a>
+                <a class="btn btn-warning btn-lg" href="@Url.Action("ProIndex", "PRODUCTs")">
+                    Shop Now
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Product categories section with cards -->
+    <div class="container mt-5">
+        <h2 class="text-center fw-bold mb-4">Danh Mục Sản Phẩm</h2>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card shadow-sm">
+                    <img src="/image/ring.jfif" class="card-img-top" alt="Rings">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Nhẫn</h5>
+                        <p class="card-text">Tôn vinh vẻ đẹp thanh lịch với bộ sưu tập nhẫn tinh tế.</p>
+                        <a href="@Url.Action("Category", "PRODUCTs", new { id = "rings" })" class="btn btn-primary">Khám phá</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-sm">
+                    <img src="/image/bracelet.jpg" class="card-img-top" alt="Bracelets">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Vòng tay</h5>
+                        <p class="card-text">Vẻ đẹp duyên dáng và cuốn hút từ những chiếc vòng tay độc đáo.</p>
+                        <a href="@Url.Action("Category", "PRODUCTs", new { id = "bracelets" })" class="btn btn-primary">Khám phá</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-sm">
+                    <img src="/image/necklaces.jfif" class="card-img-top" alt="Necklaces">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Dây chuyền</h5>
+                        <p class="card-text">Tinh tế, quyến rũ với những thiết kế dây chuyền mới nhất.</p>
+                        <a href="@Url.Action("Category", "PRODUCTs", new { id = "necklaces" })" class="btn btn-primary">Khám phá</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-sm">
+                    <img src="/image/earrings.jfif" class="card-img-top" alt="Earrings">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Bông tai</h5>
+                        <p class="card-text">Làm nổi bật vẻ đẹp tự nhiên với bông tai tinh xảo.</p>
+                        <a href="@Url.Action("Category", "PRODUCTs", new { id = "earrings" })" class="btn btn-primary">Khám phá</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials or store details section -->
+    <div class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-4">Khách Hàng Nói Gì Về Chúng Tôi</h2>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <blockquote class="blockquote">
+                        <p>"Trang sức ở đây thật sự rất đẹp và chất lượng. Tôi đã mua nhiều lần và luôn hài lòng!"</p>
+                        <footer class="blockquote-footer">Minh Anh, Hà Nội</footer>
+                    </blockquote>
+                </div>
+                <div class="col-md-4 text-center">
+                    <blockquote class="blockquote">
+                        <p>"Sản phẩm tuyệt vời, dịch vụ chu đáo, tôi sẽ giới thiệu cho bạn bè của mình."</p>
+                        <footer class="blockquote-footer">Hoàng Lan, Đà Nẵng</footer>
+                    </blockquote>
+                </div>
+                <div class="col-md-4 text-center">
+                    <blockquote class="blockquote">
+                        <p>"Tôi rất thích các sản phẩm từ cửa hàng, thiết kế trang nhã và rất dễ kết hợp với trang phục."</p>
+                        <footer class="blockquote-footer">Ngọc Trinh, TP. Hồ Chí Minh</footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

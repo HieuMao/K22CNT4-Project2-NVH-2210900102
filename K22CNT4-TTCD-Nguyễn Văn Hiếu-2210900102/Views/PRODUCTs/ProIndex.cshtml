@@ -1,0 +1,29 @@
+﻿@model IEnumerable<K22CNT4_TTCD_Nguyễn_Văn_Hiếu_2210900102.Models.PRODUCT>
+
+@{ ViewBag.Title = "Index";
+                Layout = "~/Views/Shared/_Layout.cshtml"; }
+<h2 class="text-center">Danh sách sản phẩm</h2>
+
+<div class="d-md-flex flex-wrap">
+    @foreach (var item in Model)
+    {
+<div class="card m-3 shadow-sm" style="width: 22rem;">
+    <img src="@item.product_image" class="card-img-top" alt="@item.product_name" style="height: 200px; object-fit: cover;" />
+    <div class="card-body text-center">
+        <h5 class="card-title">@Html.DisplayFor(modelItem => item.product_name)</h5>
+        <p class="card-text text-muted">
+            Giá: @Html.DisplayFor(modelItem => item.product_price) VND <br />
+            Kích thước: @Html.DisplayFor(modelItem => item.product_size) <br />
+            Màu sắc: @Html.DisplayFor(modelItem => item.product_color) <br />
+            Số lượng: @Html.DisplayFor(modelItem => item.product_quantity) <br />
+            Mô tả: @Html.DisplayFor(modelItem => item.description)
+
+        </p>
+        <div class="d-flex justify-content-around">
+            @Html.ActionLink("Xem Thêm", "Details", new { id = item.product_id }, new { @class = "btn btn-info" })
+            @Html.ActionLink("Thêm vào giỏ hàng", "AddToCart", "Cart", new { id = item.product_id }, new { @class = "btn btn-warning ml-2" })
+        </div>
+
+    </div>
+</div>}
+</div>
