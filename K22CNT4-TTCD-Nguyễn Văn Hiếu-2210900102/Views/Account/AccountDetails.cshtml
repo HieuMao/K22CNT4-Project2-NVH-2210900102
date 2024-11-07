@@ -1,99 +1,82 @@
 ﻿@model K22CNT4_TTCD_Nguyễn_Văn_Hiếu_2210900102.Models.MEMBER
 
 @{
-    ViewBag.Title = "AccountDetails";
+    ViewBag.Title = "Account Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>AccountDetails</h2>
+<h2>Account Details</h2>
 
-<div>
-    <h4>MEMBER</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.member_name)
-        </dt>
+<div class="account-details-container">
+    <div class="account-header">
+        <h4>@Model.member_name's Account</h4>
+        <hr />
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.member_name)
-        </dd>
+    <div class="account-info">
+        <dl class="dl-horizontal">
+            <dt>Username</dt>
+            <dd>@Html.DisplayFor(model => model.member_username)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.member_username)
-        </dt>
+            <dt>Password</dt>
+            <dd>@Html.DisplayFor(model => model.member_pass)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.member_username)
-        </dd>
+            <dt>Address</dt>
+            <dd>@Html.DisplayFor(model => model.dia_chi)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.member_pass)
-        </dt>
+            <dt>Phone Number</dt>
+            <dd>@Html.DisplayFor(model => model.member_phone)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.member_pass)
-        </dd>
+            <dt>Email</dt>
+            <dd>@Html.DisplayFor(model => model.member_email)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.dia_chi)
-        </dt>
+            <dt>Date of Birth</dt>
+            <dd>@Html.DisplayFor(model => model.ngay_sinh)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.dia_chi)
-        </dd>
+            <dt>Reward Points</dt>
+            <dd>@Html.DisplayFor(model => model.tich_diem)</dd>
+        </dl>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.member_phone)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.member_phone)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.member_email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.member_email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ngay_sinh)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ngay_sinh)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ngay_cap_nhap)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ngay_cap_nhap)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.gioi_tinh)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.gioi_tinh)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.tich_diem)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.tich_diem)
-        </dd>
-
-    </dl>
+    <div class="account-actions">
+        @Html.ActionLink("Edit Account", "EditAccount", new { id = Model.member_id }, new { @class = "btn btn-primary" }) |
+        @Html.ActionLink("Back", "AccountDetails", null, new { @class = "btn btn-secondary" })
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "EditAccount", new { id = Model.member_id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<style>
+    .account-details-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .account-header h4 {
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .account-info dt {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .account-info dd {
+        margin-bottom: 10px;
+        color: #555;
+    }
+
+    .account-actions {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        margin: 5px;
+        font-size: 14px;
+    }
+</style>

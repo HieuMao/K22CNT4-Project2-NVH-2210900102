@@ -27,6 +27,7 @@ namespace K22CNT4_TTCD_Nguyễn_Văn_Hiếu_2210900102.Models
         public string dia_chi { get; set; }
         public string member_phone { get; set; }
         public string member_email { get; set; }
+        
         public Nullable<System.DateTime> ngay_sinh { get; set; }
         public Nullable<System.DateTime> ngay_cap_nhap { get; set; }
         public Nullable<byte> gioi_tinh { get; set; }

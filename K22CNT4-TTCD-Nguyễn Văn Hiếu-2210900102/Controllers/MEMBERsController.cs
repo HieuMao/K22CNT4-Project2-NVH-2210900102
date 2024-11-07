@@ -52,7 +52,7 @@ namespace K22CNT4_TTCD_Nguyễn_Văn_Hiếu_2210900102.Controllers
             {
                 db.MEMBERs.Add(mEMBER);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Login", "Account");
             }
 
             return View(mEMBER);
