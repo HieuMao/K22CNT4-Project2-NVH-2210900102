@@ -13,6 +13,7 @@ namespace K22CNT4_TTCD_Nguyễn_Văn_Hiếu_2210900102
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // Route mặc định
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

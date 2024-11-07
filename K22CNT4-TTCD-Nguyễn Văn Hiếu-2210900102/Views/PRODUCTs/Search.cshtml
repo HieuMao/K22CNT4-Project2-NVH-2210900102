@@ -1,16 +1,10 @@
 ﻿@model IEnumerable<K22CNT4_TTCD_Nguyễn_Văn_Hiếu_2210900102.Models.PRODUCT>
 
-@{ ViewBag.Title = "Danh sách sản phẩm";
-    Layout = "~/Views/Shared/_Layout.cshtml"; }
-
-<h2 class="text-center">Danh sách sản phẩm</h2>
-
-<form class="d-flex mb-4" role="search" action="/PRODUCTs/Search" method="GET">
-    <input class="form-control me-2" type="search" placeholder="Nhập tên sản phẩm" aria-label="Search" name="query">
-    <button class="btn btn-outline-success" type="submit">Tìm kiếm</button>
-</form>
+<h2>Kết quả tìm kiếm cho từ khóa: @Request.QueryString["query"]</h2>
 
 <div class="d-md-flex flex-wrap">
+    @if (!Model.Any()) { }
+    
     @foreach (var item in Model)
     {
 <div class="card m-3 shadow-sm" style="width: 22rem;">
@@ -30,4 +24,4 @@
         </div>
     </div>
 </div>}
-</div>
+    

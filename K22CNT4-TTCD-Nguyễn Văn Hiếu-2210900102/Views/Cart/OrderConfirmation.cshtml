@@ -1,8 +1,8 @@
 ﻿@model K22CNT4_TTCD_Nguyễn_Văn_Hiếu_2210900102.Models.ORDER
 
-<h2>Thank You for Your Order!</h2>
-<p>Order Date: @Model.order_date</p>
-<p>Total Amount: @Model.total_price</p>
+<h2>Cảm ơn bạn đã đặt hàng!</h2>
+<p>Ngày đặt hàng: @Model.order_date.ToString("dd/MM/yyyy")</p>
+<p>Tổng số tiền: @Model.total_price.ToString("C")</p>
 
 <h3>Order Items</h3>
 <table class="table">

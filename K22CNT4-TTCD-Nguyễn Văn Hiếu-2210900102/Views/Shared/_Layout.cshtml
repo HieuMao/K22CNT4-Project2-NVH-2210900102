@@ -134,27 +134,56 @@
                     <!-- Kiểm tra trạng thái đăng nhập của người dùng -->
                     @if (Session["Account"] != null || Session["AdminAccount"] != null)
                     {
-                <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Logout", "Account")">Đăng xuất</a>
-                </li>
-                                <li class="nav-item">
-                                    <!-- Thêm biểu tượng người dùng -->
-                                    <a class="nav-link" href="@(Session["AdminAccount"] != null ? Url.Action("Index", "Admin") : Url.Action("AccountDetails", "Account"))">
-                                        <i class="fas fa-user"></i>
-                                    </a>
-                                </li> }
-                                            else
-                                            {
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="@Url.Action("Login", "Account")">Đăng nhập</a>
-                                                </li>
-                                            }
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Logout", "Account")">Đăng xuất</a>
+                        </li>
+                        <li class="nav-item">
+                            <!-- Thêm biểu tượng người dùng -->
+                            <a class="nav-link" href="@(Session["AdminAccount"] != null ? Url.Action("Index", "Admin") : Url.Action("AccountDetails", "Account"))">
+                                <i class="fas fa-user"></i>
+                            </a>
+                        </li>
+ }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Login", "Account")">Đăng nhập</a>
+                        </li>
+                    }
                 </ul>
                 <!-- Thanh tìm kiếm -->
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                <form class="d-flex mb-4" role="search" action="/PRODUCTs/Search" method="GET">
+                    <input class="form-control me-2" type="search" placeholder="Nhập tên sản phẩm" aria-label="Search" name="query" value="@Request.QueryString["query"]">
+                    <button class="btn btn-outline-success" type="submit">Tìm kiếm</button>
                 </form>
+
+                <script>
+                    function validateSearch() {
+                        const searchInput = document.getElementById("searchInput").value.trim();
+
+                        if (!searchInput) {
+                            alert("Vui lòng nhập từ khóa để tìm kiếm.");
+                            return false;
+                        }
+                        return true;
+                    }
+                </script>
+
+                <style>
+                    .form-control {
+                        width: 300px; /* Chiều rộng của ô nhập */
+                    }
+
+                    .btn-success {
+                        background-color: #28a745; /* Thay đổi màu sắc nút */
+                        color: #fff;
+                    }
+
+                        .btn-success:hover {
+                            background-color: #218838; /* Màu khi di chuột vào nút */
+                        }
+                </style>
+
             </div>
         </div>
     </nav>

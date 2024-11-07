@@ -13,14 +13,14 @@ namespace K22CNT4_TTCD_Nguyễn_Văn_Hiếu_2210900102.Controllers
     public class PRODUCTsController : Controller
     {
         private QLCHEntities1 db = new QLCHEntities1();
-
         // GET: PRODUCTs
         public ActionResult ProIndex()
         {
             return View(db.PRODUCTs.ToList());
         }
 
-        // GET: PRODUCTs/Details/5
+
+        /// GET: PRODUCTs/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -34,31 +34,24 @@ namespace K22CNT4_TTCD_Nguyễn_Văn_Hiếu_2210900102.Controllers
             }
             return View(pRODUCT);
         }
-        public class ProductController : Controller
+        [HttpGet]
+        public ActionResult Search(string query)
         {
-            private QLCHEntities1 db = new QLCHEntities1();
-
-            // GET: Products Index
-            public ActionResult ProIndex()
+            if (string.IsNullOrEmpty(query))
             {
-                var products = db.PRODUCTs.ToList();
-                return View(products);
+                return RedirectToAction("ProIndex"); // Trở lại trang danh sách nếu không có từ khóa
             }
 
-            public class PRODUCTsController : Controller
-            {
-                private QLCHEntities1 db = new QLCHEntities1();
-                // GET: Products Index
-                public ActionResult Index()
-                {
-                    // Get the list of products from the database
-                    var products = db.PRODUCTs.ToList();
-                    return View(products);
-                }
+            var products = db.PRODUCTs
+                              .Where(p => p.product_name.Contains(query)) // Tìm kiếm theo tên sản phẩm
+                              .ToList();
+
+            return View(products); // Trả về view Search với kết quả
+        }
 
 
-                // GET: Shopping Cart
-                public ActionResult Cart()
+        // GET: Shopping Cart
+        public ActionResult Cart()
                 {
                     List<ORDER_DETAIL> cart = Session["Cart"] as List<ORDER_DETAIL> ?? new List<ORDER_DETAIL>();
                     return View(cart);
@@ -168,10 +161,11 @@ namespace K22CNT4_TTCD_Nguyễn_Văn_Hiếu_2210900102.Controllers
 
                     return View(order);
                 }
-            }
-        }
+           
     }
 }
+        
+
 
 
 
